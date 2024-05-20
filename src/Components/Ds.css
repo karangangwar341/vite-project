@@ -9,3 +9,37 @@
     -webkit-text-fill-color: transparent;
   }
  
+  @keyframes floatInFromSide {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .modal-fade-in {
+    animation-name: floatInFromSide;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards; /* Ensures the element stays in place after animation */
+  }
+  /* Ds.css */
+.fade-enter {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
