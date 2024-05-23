@@ -5,9 +5,9 @@ import Description from './Description'
 import Work from './Work'
 import ContactForm from './ContactForm'
 import SkillSection from './Skills'
-import Journey from './Journey'
 
-import { Canvas } from '@react-three-fiber'
+import { Canvas } from '@react-three/fiber';
+import RoadComponent from './Journey'
 
 const Home = () => {
   return (
@@ -27,10 +27,12 @@ const Home = () => {
         <Description/>
       
         </div >
-        <Canvas>
-      <Journey />
-    </Canvas>
+        
         <SkillSection/>
+        <div className='h-96'>
+
+        </div>
+        <RoadComponent/>
         <ContactForm/>
         <Header/>
       
