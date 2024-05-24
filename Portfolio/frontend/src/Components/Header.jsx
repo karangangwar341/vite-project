@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const buttons = [
-  { Name: "About", Address: "/home" },
+  { Name: "Home", Address: "/home" },
   { Name: "Works", Address: "/work" },
-  { Name: "Contact", Address: "#" },
+  { Name: "Contact", Address: "#contactForm" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -29,6 +30,22 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleContactClick = () => {
+    if (location.pathname === "/home") {
+      scrollToContactForm();
+    } else {
+      // Navigate to home page and scroll to contact form
+      window.location.href = "/home#contactForm";
+    }
+  };
+
+  const scrollToContactForm = () => {
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className={`fixed w-screen top-0 backdrop-blur-2xl shadow-sm shadow-white/10 transition-transform ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
@@ -68,6 +85,9 @@ const Header = () => {
                 <Link
                   to={element.Address}
                   className="text-white hover:text-gray-300"
+                  onClick={
+                    element.Name === "Contact" ? handleContactClick : null
+                  }
                 >
                   <button className="rounded-full px-3 py-1 bg-white/0 hover:scale-110 transition-transform">
                     {element.Name}
@@ -83,7 +103,13 @@ const Header = () => {
             <ul className="flex flex-col items-center space-y-4 text-white">
               {buttons.map((element, index) => (
                 <li key={index}>
-                  <Link to={element.Address} className="text-white">
+                  <Link
+                    to={element.Address}
+                    className="text-white"
+                    onClick={
+                      element.Name === "Contact" ? handleContactClick : null
+                    }
+                  >
                     <button className="bg-white/10 z-60 backdrop-blur-2xl px-3 py-2 hover:border-2 hover:border-white border-2 w-32 text-center transition">
                       {element.Name}
                     </button>

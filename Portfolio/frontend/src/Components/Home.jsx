@@ -6,6 +6,7 @@ import Work from './Work'
 import SkillSection from './Skills'
 import MyComponent from './ContactForm'
 import AboutMe from './Aboutme'
+import Services from './Services'
 
 
 
@@ -33,13 +34,14 @@ const Home = () => {
         <div className='h-96'>
 
         </div>
-        {/* <RoadComponent/> */}
-        {/* <ContactForm/> */}
        
         <Header/>
-      
-        <div className='h-44'></div>  
-<MyComponent/>
+        <Services/>
+        <div className='h-44'></div>
+        <div id='contactForm'>
+        <MyComponent/>
+          </div>  
+
 <div className='h-44'>
 </div>
      
