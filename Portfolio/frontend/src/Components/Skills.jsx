@@ -1,7 +1,8 @@
-// SkillsSection.js
 import React from 'react';
 import SkillBubble from './SkillBubble';
 import { useSpring, animated } from '@react-spring/web';
+import Typewriter from 'react-typewriter-effect';
+import { useInView } from 'react-intersection-observer';
 
 const skills = [
   { skill: 'JavaScript', percentage: 70, description: 'Expert in JavaScript', color: '#F7DF1E' },
@@ -17,15 +18,36 @@ const skills = [
 ];
 
 const SkillsSection = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const headingStyles = useSpring({
-    from: { opacity: 0, transform: 'translateY(-20px)' },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-    config: { mass: 1, tension: 170, friction: 26 },
+    from: { opacity: 0, transform: 'translateX(-50px)' },
+    to: async (next) => {
+      await next({ opacity: 1, transform: 'translateX(0px)' });
+    },
+    config: { tension: 300, friction: 20 },
+    delay: 200,
+    immediate: !inView,
   });
 
   return (
-    <div style={{height:"75vh"}} className=" h-screen m-0 relative">
-      <animated.h1 style={headingStyles} className='text-center py-2 mt-5 mb-3'>Skills</animated.h1>
+    <div ref={ref} style={{ minHeight: '75vh' }} className="relative">
+      <animated.h1 style={headingStyles} className='text-center py-2 mb-3 mt-24 font-semibold text-7xl'>
+       Skills
+      </animated.h1>
+      <animated.h2 style={headingStyles} className='text-center py-2 mt-5 mb-3'>
+        <Typewriter
+          onTypingEnd={() => {}}
+          options={{
+            strings: ['Proficiencies in various technologies'],
+            autoStart: true,
+            loop: false,
+          }}
+        />
+      </animated.h2>
       {skills.map((skill, index) => (
         <AnimatedBubble key={index} skill={skill.skill} percentage={skill.percentage} description={skill.description} />
       ))}

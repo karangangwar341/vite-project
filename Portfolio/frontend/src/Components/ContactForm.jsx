@@ -1,24 +1,29 @@
-import React from "react";
+import * as React from "react";
 import { AiOutlineMail, AiOutlinePhone, AiOutlineEnvironment, AiOutlineInstagram } from "react-icons/ai";
 import { RiFileDownloadLine } from "react-icons/ri";
-import image from "../assets/image.png"
-import resume from "../assets/karan_resume.pdf"
-const ContactForm = () => {
+import image from "../assets/image.png";
+import resume from "../assets/karan_resume.pdf";
+
+function SocialIcon({ src, alt }) {
+  return <img loading="lazy" src={src} alt={alt} className="shrink-0 aspect-square w-[50px]" />;
+}
+
+const ContactForm = ({ onClose }) => {
   const email = "karangangwar341@gmail.com";
   const phoneNumber = "+919520569400";
   const address = "Lucknow, Uttar Pradesh, India";
   const instagramLink = "https://instagram.com/the_silent_boy_1101"; 
-  const resumePdfPath = {resume}; // Update this path according to where your resume PDF is located
+  const resumePdfPath = resume; // Update this path according to where your resume PDF is located
 
   return (
-    <div className="mt-96 flex items-center justify-center w-screen min-h-screen">
-      <div className="w-full md:w-3/5 p-10 bg-white/0 border-2 border-white/20 shadow-white/20 shadow-2xl md:rounded-xl text-center space-y-6">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/40 bg-opacity-70 backdrop-blur-xl z-50">
+      <div className="w-full md:w-3/5 p-10 bg-white/5 border-2 border-white/20 shadow-white/20 shadow-2xl md:rounded-xl text-center space-y-6 backdrop-filter backdrop-blur-lg">
         <h1 className="text-4xl text-white mb-8 font-bold">Contact Me</h1>
 
         <div className="flex justify-center">
           <div className="w-1/2 mr-4">
             <img
-              src={image} // Replace with actual contact form image
+              src={image}
               alt="Contact Form"
               className="w-full rounded-lg shadow-md mb-8"
             />
@@ -63,6 +68,12 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
+        <button
+          onClick={onClose}
+          className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg"
+        >
+          Close
+        </button>
       </div>
     </div>
   );
@@ -77,4 +88,44 @@ const ContactMethod = ({ icon, text, link }) => (
   </div>
 );
 
-export default ContactForm;
+function MyComponent() {
+  const [isContactFormOpen, setIsContactFormOpen] = React.useState(false);
+
+  const socialIcons = [
+    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/ce7a5392200faa7795d7c982290d739a4ea5d3c612c145679fe027eef2dccb8a?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social Icon 1" },
+    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/e03b68453f190f1624fab80de8bb54383f14a188464fac80f33230d108d898db?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social Icon 2" },
+    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/6ca41ebe800be25472bc5e9a4c5d34ecce6e4cf15a807a340e84a6d0744c9b80?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social Icon 3" },
+  ];
+
+  const handleOpenContactForm = () => {
+    setIsContactFormOpen(true);
+  };
+
+  const handleCloseContactForm = () => {
+    setIsContactFormOpen(false);
+  };
+
+  return (
+    <div className="w-screen flex justify-center items-center">
+      <main className="flex flex-col items-center shadow-xl shadow-white/15 px-5 max-w-[878px] bg-white/10 border border-white/20 rounded-lg backdrop-blur-md  p-10">
+        <h1 className="self-stretch w-full text-5xl font-bold text-center text-white leading-[90px] tracking-[2.49px] max-md:max-w-full max-md:text-4xl max-md:leading-10">
+          Interested to work with me?
+        </h1>
+        <button
+          onClick={handleOpenContactForm}
+          className="justify-center px-14 py-4 mt-28 text-base font-semibold tracking-wide border border-white border-solid rounded-[50px] text-neutral-100 max-md:px-5 max-md:mt-10"
+        >
+          LET’S TALK
+        </button>
+        <section className="flex gap-5 justify-between mt-24 max-md:mt-10">
+          {socialIcons.map((icon) => (
+            <SocialIcon key={icon.src} src={icon.src} alt={icon.alt} />
+          ))}
+        </section>
+      </main>
+      {isContactFormOpen && <ContactForm onClose={handleCloseContactForm} />}
+    </div>
+  );
+}
+
+export default MyComponent;

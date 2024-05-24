@@ -3,11 +3,11 @@ import Header from './Header'
 import Footer from './Footer'
 import Description from './Description'
 import Work from './Work'
-import ContactForm from './ContactForm'
 import SkillSection from './Skills'
+import MyComponent from './ContactForm'
+import AboutMe from './Aboutme'
 
-import { Canvas } from '@react-three/fiber';
-import RoadComponent from './Journey'
+
 
 const Home = () => {
   return (
@@ -27,18 +27,22 @@ const Home = () => {
         <Description/>
       
         </div >
+        <AboutMe/>
         
         <SkillSection/>
         <div className='h-96'>
 
         </div>
-        <RoadComponent/>
-        <ContactForm/>
+        {/* <RoadComponent/> */}
+        {/* <ContactForm/> */}
+       
         <Header/>
       
-       <div className='h-12'>
-
-       </div>
+        <div className='h-44'></div>  
+<MyComponent/>
+<div className='h-44'>
+</div>
+     
         <Footer/>
     </div>
   )

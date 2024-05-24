@@ -34,14 +34,14 @@ const Header = () => {
     <div className={`fixed w-screen top-0 backdrop-blur-2xl shadow-sm shadow-white/10 transition-transform ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div
         className={`${
-          isMenuOpen ? "h-64" : ""
-        } w-screen p-2 pb-3`}
+          isMenuOpen ? "h-72" : ""
+        } w-screen p-2 pb-1`}
       >
-        <h1 className="absolute pl-8 py-2 text-5xl font-semi-bold font-mono">
-          k.
+        <h1 className="absolute pl-8 pt-2 text-3xl font-semi-bold font-mono">
+          KARAN.
         </h1>
 
-        <div className="flex justify-end items-center pr-2 pt-4">
+        <div className="flex justify-end items-center pr-2 pt-2">
           <button
             className="lg:hidden z-40 bg-white/0 text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
