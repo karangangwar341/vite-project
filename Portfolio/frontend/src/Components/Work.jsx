@@ -8,6 +8,13 @@ import Grievease1 from "../assets/Grievease1.png"
 import Grievease2 from "../assets/Grievease2.png"
 import koinx1 from "../assets/koinx1.png"
 import koinx2 from "../assets/koinx2.png"
+import chatMitra1 from "../assets/Chatmitra1.png"
+
+import chatMitra2 from "../assets/Chatmitra2.png"
+
+import movie1 from "../assets/movie1.png"
+
+import movie2 from "../assets/movie2.png"
 
 import "./Ds.css";
 const items = [
@@ -51,12 +58,20 @@ const items = [
      koinx1,koinx2  ],
   },
   {
-    id: 4,
+    id: 5,
     title: "ChatMitra",
     subtitle: "AI-Powered Chatbot",
     description:
       "Developed ChatMitra, a chatbot app that includes a noticeboard and infographics, using Django for the backend and Tailwind CSS for the frontend. Designed an engaging UI with Figma, improving user interaction and satisfaction.",
     images: [chatMitra1, chatMitra2],
+  },
+  {
+    id: 6,
+    title: "MovieMania",
+    subtitle: "Movie Details at your finger tips",
+    description:
+      "MovieMania is a movie web application project that involves creating components to display a list of movies and details about each movie along with a search functionality.",
+    images: [movie1, movie2],
   },
 ];
 
@@ -69,7 +84,7 @@ const Work = () => {
     (total, item) => total + item.images.length,
     0
   );
-  let x = Math.random() * 3000;
+  let x = Math.random() * 30000;
   const containerRef = useRef(null);
   useEffect(() => {
     const timer = setInterval(() => {
@@ -130,7 +145,7 @@ const Work = () => {
       <Header />
       
       <h1 className="text-4xl mb-3 pt-24 flex items-center justify-center  text-center font-semibold ">
-        Projects
+        Web Dev Projects
       </h1>
       <main
         style={{ height: "75vh" , zIndex: 0
@@ -192,7 +207,7 @@ const Work = () => {
                 alt={items.find((item) => item.id === selectedId).title}
                 className="w-full h-64 object-cover rounded-lg"
               />
-              <h5 className="text-xl font-semibold text-gray-800 mt-4">
+              <h5 className="text-xl font-semibold  mt-4">
                 {items.find((item) => item.id === selectedId).subtitle}
               </h5>
               <h2 className="text-2xl font-bold mt-2">
