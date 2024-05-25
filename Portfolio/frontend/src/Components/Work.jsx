@@ -2,64 +2,64 @@ import React, { useState, useEffect, useRef } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import mzone1 from "../assets/mzone1.png"
+import mzone2 from "../assets/mzone2.png"
+import Grievease1 from "../assets/Grievease1.png"
+import Grievease2 from "../assets/Grievease2.png"
+import koinx1 from "../assets/koinx1.png"
+import koinx2 from "../assets/koinx2.png"
+
 import "./Ds.css";
 const items = [
   {
     id: 1,
-    title: "Project1",
-    subtitle: "It was a great project.",
+    title: "Mzone",
+    subtitle: "Revolutionary Music App",
     description:
-      "This project involved building a robust web application with React and Node.js.",
-    images: [
-      "https://via.placeholder.com/400x300.png?text=Project1+Image1",
-      "https://via.placeholder.com/400x300.png?text=Project1+Image2",
-    ],
+      "Engineered Mzone, a groundbreaking music application, with Node.js backend, Firebase database, and React frontend. Designed sleek and intuitive UI using Figma, enhancing user engagement and satisfaction. About 60% people preferred Mzone over other players based on the visually appealing nature.",
+    images: [mzone1,mzone2
+      ],
   },
   {
     id: 2,
-    title: "Project2",
-    subtitle: "It was another great project.",
+    title: "GrievEase",
+    subtitle: "Transparent Grievance Management Portal",
     description:
-      "This project focused on developing a mobile app using Flutter.",
+      "Reduced the time to report a complaint by over 50%, now requiring less than 2 minutes to file a complaint. Crafted an intuitive and visually appealing UI using Figma, significantly enhancing user interaction and satisfaction. Played a pivotal role as Frontend Developer and UI Designer, ensuring seamless delivery of high-quality solutions.",
     images: [
-      "https://via.placeholder.com/400x300.png?text=Project2+Image1",
-      "https://via.placeholder.com/400x300.png?text=Project2+Image2",
-    ],
+      Grievease1,
+    Grievease2],
   },
   {
     id: 3,
-    title: "Project3",
-    subtitle: "It was a great project too.",
+    title: "SignLanguageReader",
+    subtitle: "Sign Language Detection",
     description:
-      "This project was an e-commerce platform with Django and React.",
+      "Developed a Python code that accurately detects and translates sign language alphabets using the webcam, achieving an accuracy rate of 85%. Employed OpenCV, Mediapipe Keras model, and machine learning techniques, resulting in a 20% improvement in detection accuracy compared to previous methods. Currently expanding the code’s capabilities to detect entire words and short phrases, with a projected 30% increase in translation accuracy upon completion.",
     images: [
-      "https://via.placeholder.com/400x300.png?text=Project3+Image1",
-      "https://via.placeholder.com/400x300.png?text=Project3+Image2",
+      "https://via.placeholder.com/400x300.png?text=SignLanguageReader+Image1",
+      "https://via.placeholder.com/400x300.png?text=SignLanguageReader+Image2",
     ],
   },
   {
     id: 4,
-    title: "Project4",
-    subtitle: "It was a fantastic project.",
+    title: "KoinX",
+    subtitle: " Prediction",
     description:
-      "This project involved creating a machine learning model to predict stock prices.",
+      "This project involved creating a machine learning model to predict stock prices. The model was trained on historical data and achieved a high level of accuracy, providing valuable insights for stock traders.",
     images: [
-      "https://via.placeholder.com/400x300.png?text=Project4+Image1",
-      "https://via.placeholder.com/400x300.png?text=Project4+Image2",
-    ],
+     koinx1,koinx2  ],
   },
   {
-    id: 5,
-    title: "Project5",
-    subtitle: "It was an amazing project.",
+    id: 4,
+    title: "ChatMitra",
+    subtitle: "AI-Powered Chatbot",
     description:
-      "This project focused on developing an IoT system for smart home automation.",
-    images: [
-      "https://via.placeholder.com/400x300.png?text=Project5+Image1",
-      "https://via.placeholder.com/400x300.png?text=Project5+Image2",
-    ],
+      "Developed ChatMitra, a chatbot app that includes a noticeboard and infographics, using Django for the backend and Tailwind CSS for the frontend. Designed an engaging UI with Figma, improving user interaction and satisfaction.",
+    images: [chatMitra1, chatMitra2],
   },
 ];
+
 
 const Work = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -69,11 +69,12 @@ const Work = () => {
     (total, item) => total + item.images.length,
     0
   );
+  let x = Math.random() * 3000;
   const containerRef = useRef(null);
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 2);
-    }, 2000);
+    }, x);
 
     return () => clearInterval(timer);
   }, [selectedId, totalImages]); // Include totalImages in the dependency array
@@ -181,7 +182,7 @@ const Work = () => {
               selectedId ? "modal-fade-in" : "modal-fade-out"
             }`}
           >
-            <article className="flex-col bg-white/20 backdrop:blur-2xl rounded-xl shadow-lg p-8 max-w-sm mx-auto">
+            <article className="flex-col bg-white/20 backdrop:blur-2xl rounded-xl w-full 0 md:w-1/2 md:h-3/4 shadow-lg p-8 mx-auto">
               <img
                 src={
                   items.find((item) => item.id === selectedId).images[

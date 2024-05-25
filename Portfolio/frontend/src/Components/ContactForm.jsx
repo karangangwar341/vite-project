@@ -1,7 +1,7 @@
 import * as React from "react";
 import { AiOutlineMail, AiOutlinePhone, AiOutlineEnvironment, AiOutlineInstagram } from "react-icons/ai";
 import { RiFileDownloadLine } from "react-icons/ri";
-import image from "../assets/image.png";
+import image from "../assets/contactphoto.png";
 import resume from "../assets/karan_resume.pdf";
 
 function SocialIcon({ src, alt }) {
