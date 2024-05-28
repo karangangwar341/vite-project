@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const buttons = [
-  { Name: "Home", Address: "/home" },
+  { Name: "Home", Address: "/" },
   { Name: "Works", Address: "/work" },
   { Name: "Contact", Address: "#contactForm" },
 ];

@@ -48,7 +48,7 @@ function Header() {
               <h1 className="mt-2 text-7xl font-bold text-gray-50 max-md:max-w-full max-md:text-4xl">
                 Hi I’m,
               </h1>
-              <div ref={ref} className="text-lg gradient2-text about-me-section">
+              <div ref={ref} className="text-lg h-96 gradient2-text about-me-section">
                 {startTyping && (
                   <Typewriter
                     text="Hi, I'm Karan Gangwar, a passionate B.Tech student in Computer Science and Engineering at IET Lucknow. With a knack for turning ideas into reality, I have developed projects like Mzone, GrievEase, and SignLanguageReader. I excel in Java, C++, JavaScript, SQL, Python, and HTML, always striving to enhance my skills. I love crafting intuitive and engaging user experiences using modern frameworks like ReactJS and Tailwind CSS. I thrive on challenges and enjoy problem-solving, ensuring high-quality solutions in every project. Let's collaborate and bring digital dreams to life."
