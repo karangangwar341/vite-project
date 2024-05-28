@@ -13,7 +13,7 @@ const SkillBubble = ({ percentage, description, icon, color }) => {
   return (
     <animated.div
       style={styles}
-      className="relative flex items-center justify-center m-6 md:w-64 md:h-64 w-44 h-44 md:hover:w-80 hover:w-72    rounded-full shadow-white/20 bg-gray-300/5 text-white shadow-xl"
+      className="relative flex items-center justify-center  m-6 md:w-64 md:h-64 w-44 h-44 md:hover:w-80 hover:w-72    rounded-full shadow-white/20 bg-gray-300/10 text-white shadow-xl"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

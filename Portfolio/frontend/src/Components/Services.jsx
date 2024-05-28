@@ -70,7 +70,7 @@ function Services() {
               className="text-white hover:text-gray-300"
               onClick={handleContactClick}
             >
-              <button className="rounded-full px-3 py-1 bg-white/0 hover:scale-110 transition-transform">
+              <button className="flex justify-center items-center px-16 py-3 text-2xl font-semibold text-center text-orange-600 bg-gray-50 rounded-lg max-md:px-5 hover:scale-110 transition-transform">
                 Let's Talk
               </button>
             </Link>
