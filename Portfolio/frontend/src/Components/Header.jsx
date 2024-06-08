@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const buttons = [
-  { Name: "Home", Address: "/" },
+  { Name: "Home", Address: "/home" },
   { Name: "Works", Address: "/work" },
   { Name: "Contact", Address: "#contactForm" },
 ];
@@ -38,6 +38,10 @@ const Header = () => {
       // Navigate to home page and scroll to contact form
       window.location.href = "/home#contactForm";
     }
+  };
+  const handleHomeClick = () => {
+    window.location.href = "/home";
+    //window.location.reload();
   };
 
   const scrollToContactForm = () => {
@@ -86,8 +90,16 @@ const Header = () => {
                   to={element.Address}
                   className="text-white hover:text-gray-300"
                   onClick={
-                    element.Name === "Contact" ? handleContactClick : null
+                    () => {
+                      if (element.Name === "Contact") {
+                        handleContactClick();
+                      } else if (element.Name === "Home") {
+                        handleHomeClick();
+                      }
+                    }
                   }
+                  
+                 
                 >
                   <button className="rounded-full px-3 py-1 bg-white/0 hover:scale-110 transition-transform">
                     {element.Name}

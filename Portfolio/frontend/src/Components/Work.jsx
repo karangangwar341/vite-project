@@ -2,21 +2,22 @@ import React, { useState, useEffect, useRef } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import mzone1 from "../assets/mzone1.png"
-import mzone2 from "../assets/mzone2.png"
-import Grievease1 from "../assets/Grievease1.png"
-import Grievease2 from "../assets/Grievease2.png"
-import koinx1 from "../assets/koinx1.png"
-import koinx2 from "../assets/koinx2.png"
-import chatMitra1 from "../assets/Chatmitra1.png"
+import mzone1 from "../assets/mzone1.png";
+import mzone2 from "../assets/mzone2.png";
+import Grievease1 from "../assets/Grievease1.png";
+import Grievease2 from "../assets/Grievease2.png";
+import koinx1 from "../assets/koinx1.png";
+import koinx2 from "../assets/koinx2.png";
+import chatMitra1 from "../assets/Chatmitra1.png";
 
-import chatMitra2 from "../assets/Chatmitra2.png"
+import chatMitra2 from "../assets/Chatmitra2.png";
 
-import movie1 from "../assets/movie1.png"
+import movie1 from "../assets/movie1.png";
 
-import movie2 from "../assets/movie2.png"
+import movie2 from "../assets/movie2.png";
 
 import "./Ds.css";
+import Work2 from "./UI";
 const items = [
   {
     id: 1,
@@ -24,8 +25,7 @@ const items = [
     subtitle: "Revolutionary Music App",
     description:
       "Engineered Mzone, a groundbreaking music application, with Node.js backend, Firebase database, and React frontend. Designed sleek and intuitive UI using Figma, enhancing user engagement and satisfaction. About 60% people preferred Mzone over other players based on the visually appealing nature.",
-    images: [mzone1,mzone2
-      ],
+    images: [mzone1, mzone2],
   },
   {
     id: 2,
@@ -33,9 +33,7 @@ const items = [
     subtitle: "Transparent Grievance Management Portal",
     description:
       "Reduced the time to report a complaint by over 50%, now requiring less than 2 minutes to file a complaint. Crafted an intuitive and visually appealing UI using Figma, significantly enhancing user interaction and satisfaction. Played a pivotal role as Frontend Developer and UI Designer, ensuring seamless delivery of high-quality solutions.",
-    images: [
-      Grievease1,
-    Grievease2],
+    images: [Grievease1, Grievease2],
   },
   {
     id: 3,
@@ -54,8 +52,7 @@ const items = [
     subtitle: " Prediction",
     description:
       "This project involved creating a machine learning model to predict stock prices. The model was trained on historical data and achieved a high level of accuracy, providing valuable insights for stock traders.",
-    images: [
-     koinx1,koinx2  ],
+    images: [koinx1, koinx2],
   },
   {
     id: 5,
@@ -74,7 +71,6 @@ const items = [
     images: [movie1, movie2],
   },
 ];
-
 
 const Work = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -131,7 +127,10 @@ const Work = () => {
       const distanceFromCenter = Math.abs(
         item.offsetLeft + item.offsetWidth / 2 - center
       );
-      const scale = Math.max(0.5, 1 - 2.2*Math.min(0.5, distanceFromCenter / 1000));
+      const scale = Math.max(
+        0.5,
+        1 - 2.2 * Math.min(0.5, distanceFromCenter / 1000)
+      );
       item.style.transform = `scale(${scale})`;
     });
 
@@ -141,15 +140,14 @@ const Work = () => {
   }, []);
 
   return (
-    <div className=" bbbbbbbbbbbb h-screen z-40 w-screen bg-deep-purple">
+    <div className=" bbbbbbbbbbbb h-full z-40 w-screen bg-deep-purple">
       <Header />
-      
+
       <h1 className="text-4xl mb-3 pt-24 flex items-center justify-center  text-center font-semibold ">
         Web Dev Projects
       </h1>
       <main
-        style={{ height: "75vh" , zIndex: 0
-         }}
+        style={{ height: "75vh", zIndex: 0 }}
         className=" mx-1 px-0 pt-24 h-full z-0 overflow-hidden"
       >
         <section className="mb-16  z-0 h-full overflow-y-auto">
@@ -240,6 +238,8 @@ const Work = () => {
           </div>
         )}
       </main>
+
+      <Work2 />
 
       <Footer />
     </div>

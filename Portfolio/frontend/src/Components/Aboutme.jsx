@@ -4,21 +4,22 @@ import { useInView } from "react-intersection-observer";
 import profilepic from '../assets/avatar.png'
 function SocialMediaLinks() {
   const links = [
-    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/903e55b0f26ec570e3c97c8f1b7278c859ddd373096f9c93941373e946649be5?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social media icon 1" },
-    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/c87bd3a295b8a052a0fab142dacfd27142825426fa87311b2f341dfe751bc0ea?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social media icon 2" },
-    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/23d2f7621fbe9a928459dd49735f03a515bffbfcbfd529b3dfea02f8ad7ebb37?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social media icon 3" },
+   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/ce7a5392200faa7795d7c982290d739a4ea5d3c612c145679fe027eef2dccb8a?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social Icon 1", url:"https://instagram.com/the_silent_boy_1101"  },
+      { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/6ca41ebe800be25472bc5e9a4c5d34ecce6e4cf15a807a340e84a6d0744c9b80?apiKey=78edfb5432bb454ba45341ffa54eb21f&", alt: "Social Icon 3", url:"https://www.linkedin.com/in/karan-gangwar-59aa8b225/"  },
   ];
 
   return (
     <div className="flex gap-4 self-start">
       {links.map((link, index) => (
-        <img
+       <a href={link.url}>
+         <img
           key={index}
           loading="lazy"
           src={link.src}
           alt={link.alt}
           className="shrink-0 w-6 aspect-square"
         />
+       </a>
       ))}
     </div>
   );

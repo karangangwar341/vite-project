@@ -11,8 +11,9 @@ import Services from './Services'
 
 
 const Home = () => {
+  
   return (
-    <div className=' bg-deep-purple bg- w-screen h-full '>
+    <div className=' bg-deep-purple w-screen h-full '>
       <style>
             {`
               ::-webkit-scrollbar {
